@@ -1,0 +1,28 @@
+name: Refresh Streak Stats
+
+on:
+  schedule:
+    # Runs every 6 hours to keep your streak fresh
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # Allows you to run it manually
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Update README with timestamp
+        run: |
+          # This replaces the date parameter in your streak URL with the current date/time
+          TIMESTAMP=$(date +%s)
+          sed -i "s/border_radius=5[^ \"]*/border_radius=5\&v=$TIMESTAMP/g" README.md
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore: refresh streak stats cache" || echo "No changes to commit"
+          git push
