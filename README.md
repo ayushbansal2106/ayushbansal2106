@@ -35,7 +35,7 @@
 ###
 
 <div align="center">
-  <img src="https://streak-stats.demolab.com?user=ayushbansal2106&theme=dracula&hide_border=true&border_radius=5&v=1781526939" height="150" />
+  <img src="https://streak-stats.demolab.com?user=ayushbansal2106&theme=dracula&hide_border=true&border_radius=5&v=1781557990" height="150" />
 </div>
 
 ###
